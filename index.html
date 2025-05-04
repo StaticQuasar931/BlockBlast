@@ -7,22 +7,26 @@
   <meta name="description" content="Play Blooky Blasta (aka Block Blast, Blooky Blast, and Blocky Blast) online for free. The best unblocked puzzle game for school, work, or anywhere. Fullscreen, no downloads!">
   <meta name="keywords" content="Blooky Blasta, Blooky Blast, Blocky Blast, Block Blast, block blast puzzle, play Blooky Blasta online, Blooky Blasta unblocked, free puzzle games, online block game, unblocked school games, StaticQuasar931 games, top logic games, brain training games, play Blooky Blasta full screen, block puzzle school game, best puzzle game 2025, tetris-style game, play at school, play at work, no download puzzle games">
   <meta name="robots" content="index, follow">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
       height: 100%;
       width: 100%;
+      overflow: hidden;
+      background: #000;
     }
+
     iframe {
       border: none;
-      width: 100vw;
-      height: 100vh;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: block;
       z-index: 0;
     }
 
@@ -108,7 +112,7 @@
   <iframe 
     id="iframehtml5" 
     src="https://staticquasar931.github.io/BlookBlast/" 
-    allowfullscreen="true" 
+    allow="fullscreen" 
     scrolling="no">
   </iframe>
 
@@ -121,7 +125,7 @@
   <!-- Bottom Left Info Box -->
   <div id="infoBox">
     <h1 style="font-size: 16px; margin-top: 0;">Play Blooky Blasta – Unblocked Puzzle Game</h1>
-    <p style="margin: 0;">Blooky Blasta (aka Block Blast) is a block puzzle g<span style="display:none">a</span>me that’s free, fullscreen, and school-safe. Works on Chromebooks and all devices.-Brought to you by Static</p>
+    <p style="margin: 0;">Blooky Blasta (aka Block Blast) is a block puzzle g<span style="display:none">a</span>me that’s free, fullscreen, and school-safe. Works on Chromebooks and all devices. - Brought to you by Static</p>
     <button id="hideButton" onclick="document.getElementById('infoBox').style.display='none'">Hide Info</button>
   </div>
 
@@ -178,13 +182,16 @@
     }
 
     function adjustIframe() {
-      var iframe = document.getElementById("iframehtml5");
+      const iframe = document.getElementById("iframehtml5");
       iframe.style.width = window.innerWidth + "px";
       iframe.style.height = window.innerHeight + "px";
     }
 
     window.addEventListener('resize', adjustIframe);
     window.addEventListener('load', adjustIframe);
+    window.onbeforeunload = function () {
+      return "Are you sure you want to leave or reload the game?";
+    };
   </script>
 </body>
 </html>
